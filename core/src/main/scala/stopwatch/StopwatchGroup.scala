@@ -19,13 +19,27 @@ package stopwatch
 import stopwatch.impl.DisabledStopwatch
 import stopwatch.impl.EnabledStopwatch
 import stopwatch.impl.StopwatchStatisticImpl
+import stopwatch.impl.CumulativeMovingAverageImpl
+import scala.actors.Actor._
+import scala.actors.TIMEOUT
 
 /**
  * Stopwatch group: used to initialize, start, dispose and reset stopwatches.
  * <p>
  * Stopwatches in the same group share the same distribution range.
  */
-class StopwatchGroup(val name: String) {
+class StopwatchGroup(val name: String, movingAverage: Option[MovingAverageRange]) {
+  def this(name: String) = this(name, None)
+
+  movingAverage.foreach { avg => 
+    actor {
+      loop {
+        reactWithin(avg.period.toMillis) {
+          case TIMEOUT => for (s <- _stats.values) s.notifyPeriodChange
+        }
+      }
+    }
+  }
 
   /** True if stopwatch factory is enabled (i.e., issues real stopwatches) */
   @volatile var enabled = false  // default to disabled
@@ -87,7 +101,7 @@ class StopwatchGroup(val name: String) {
 
   /** Return a snapshot of the statistics for a given stopwatch. */
   def snapshot(name: String): StopwatchStatistic = {
-    ifStats(name, _.snapshot, new StopwatchStatisticImpl(this, name))
+    ifStats(name, _.snapshot, mkStats(name))
   }
 
   /** Reset statistics for a given stopwatch. */
@@ -129,10 +143,13 @@ class StopwatchGroup(val name: String) {
     }
   }
 
+  private def mkStats(name: String) = new StopwatchStatisticImpl(
+    this, name, movingAverage.map(new CumulativeMovingAverageImpl(_)))
+
   /** Return existing statistics or create new statistics for given stopwatch */
   private def getOrCreate(name: String): StopwatchStatisticImpl = synchronized {
     ifStats(name, { x => x }, {
-      val newStats = new StopwatchStatisticImpl(this, name)
+      val newStats = mkStats(name)
       _stats.put(name, newStats)
       newStats
     })

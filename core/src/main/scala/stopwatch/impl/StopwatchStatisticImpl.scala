@@ -23,7 +23,8 @@ import stopwatch.StopwatchStatistic
 /**
  * Time statistics for a stopwatch.
  */
-final class StopwatchStatisticImpl(val group: StopwatchGroup, val name: String)
+final class StopwatchStatisticImpl(val group: StopwatchGroup, val name: String, 
+                                   val movingAverage: Option[CumulativeMovingAverageImpl])
   extends StopwatchStatistic
   with Cloneable
 {
@@ -165,6 +166,10 @@ final class StopwatchStatisticImpl(val group: StopwatchGroup, val name: String)
       }
     }
     group.notifyListeners(this)
+  }
+
+  private[stopwatch] def notifyPeriodChange = synchronized {
+    movingAverage.foreach { avg => avg ::= snapshot }
   }
 
   // override StopwatchStatistic.reset()

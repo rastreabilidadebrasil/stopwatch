@@ -88,4 +88,6 @@ trait StopwatchStatistic {
    *  including time distribution.
    */
   def toLongString: String
+
+  def movingAverage: Option[CumulativeMovingAverage]
 }

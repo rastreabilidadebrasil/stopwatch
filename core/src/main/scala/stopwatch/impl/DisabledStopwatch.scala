@@ -40,6 +40,6 @@ class DisabledStopwatch
   def snapshot() = Statistic
   override def doWith[T](f: => T): T = f
   
-  val Statistic = new StopwatchStatisticImpl(new StopwatchGroup("DISABLED"), "DISABLED")
+  val Statistic = new StopwatchStatisticImpl(new StopwatchGroup("DISABLED"), "DISABLED", None)
   
 }
