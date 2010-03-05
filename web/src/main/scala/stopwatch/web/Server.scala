@@ -297,16 +297,17 @@ class Server(enableControls: Boolean) extends WebServer with ResourceHandler {
     )
 
     <div class="groupReplace" id={id(g.name)}>
-      <h3 class="StopwatchGroup"> {g.name} </h3>
-      { if (enableControls) {
-      <span class="groupSwitch">Enabled&nbsp;
-        <input type="checkbox" name={g.name}
-               checked={if (g.enabled) "checked" else null}/>
-      </span>
-      <span class="groupReset">
-        <a class="resetGroup" href="#" onclick={reset}>Reset Group</a>
-      </span>
-      }}
+      <h3 class="StopwatchGroup"> {g.name} </h3> { 
+        if (enableControls) {
+          <span class="groupSwitch">Enabled&nbsp;
+          <input type="checkbox" name={g.name}
+            checked={if (g.enabled) "checked" else null}/>
+          </span>
+          <span class="groupReset">
+          <a class="resetGroup" href="#" onclick={reset}>Reset Group</a>
+          </span>
+        } else NodeSeq.Empty
+      }
       <table class="stopwatches">
         { headers(g) ++ <tbody> { rows(g) } </tbody> }
       </table>
@@ -390,13 +391,13 @@ class Server(enableControls: Boolean) extends WebServer with ResourceHandler {
           <input type="checkbox" name={g.name+"~"+s.name}
                  checked={if (s.enabled) "checked" else null}/>
         </div>
-        }
+        } else NodeSeq.Empty
       }
       </td> ++
       <td> {
         if (enableControls) {
         <a class="resetStopwatch" href="#" onclick={reset}>Reset</a>
-        }
+        } else NodeSeq.Empty
       }
       </td>
     } </tr>
