@@ -252,6 +252,7 @@ class Server(enableControls: Boolean) extends WebServer with ResourceHandler {
       <tr> {
         <th scope="row" class="lead" rowspan="2">Name</th> ++
         <th scope="col" colspan="3">Hits</th> ++
+        <th scope="col" colspan="3">Moving average</th> ++
         <th scope="col" colspan="5">Time</th> ++
         <th scope="col" colspan="3">Threads</th> ++
         <th scope="col" colspan="2">Access</th> ++ {
@@ -262,21 +263,27 @@ class Server(enableControls: Boolean) extends WebServer with ResourceHandler {
         <th scope="col" rowspan="2">Enabled</th>
         <th scope="col" rowspan="2">Action</th>
       } </tr>
-      <tr>
-        <th scope="col" class="odd">Total</th>
-        <th scope="col">Hits/s</th>
-        <th scope="col">Errors</th>
-        <th scope="col" class="odd">Min</th>
-        <th scope="col">Avg</th>
-        <th scope="col" class="odd">Max</th>
-        <th scope="col">Total</th>
-        <th scope="col" class="odd">Std Dev</th>
-        <th scope="col">Current</th>
-        <th scope="col" class="odd">Avg</th>
-        <th scope="col">Max</th>
-        <th scope="col" class="odd">First</th>
+      <tr> {
+        <th scope="col" class="odd">Total</th> ++
+        <th scope="col">Hits/s</th> ++
+        <th scope="col">Errors</th> ++ { 
+          if (g.movingAverage.isDefined) {
+            <th scope="col" class="odd">Total</th> ++
+            <th scope="col">Hits/s</th> ++
+            <th scope="col">Errors</th>
+          } else NodeSeq.Empty
+        } ++
+        <th scope="col" class="odd">Min</th> ++
+        <th scope="col">Avg</th> ++
+        <th scope="col" class="odd">Max</th> ++
+        <th scope="col">Total</th> ++
+        <th scope="col" class="odd">Std Dev</th> ++
+        <th scope="col">Current</th> ++
+        <th scope="col" class="odd">Avg</th> ++
+        <th scope="col">Max</th> ++
+        <th scope="col" class="odd">First</th> ++
         <th scope="col">Last</th>
-      </tr>
+      } </tr>
     </thead>
   }
 
@@ -342,6 +349,11 @@ class Server(enableControls: Boolean) extends WebServer with ResourceHandler {
       <td>{s.hits}</td> ++
       <td>{throughput}</td> ++
       <td>{s.errors}</td> ++
+      {for { avg <- s.movingAverage } yield {
+        <td>{avg.hits}</td> ++
+        <td>{"%3.4f".format(avg.hitsPerSec)}</td> ++
+        <td>{avg.errors}</td>
+      }} ++
       <td>{s.minTime/millis}</td> ++
       <td>{s.averageTime/millis}</td> ++
       <td>{s.maxTime/millis}</td> ++

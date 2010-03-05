@@ -28,7 +28,7 @@ import scala.actors.TIMEOUT
  * <p>
  * Stopwatches in the same group share the same distribution range.
  */
-class StopwatchGroup(val name: String, movingAverage: Option[MovingAverageRange]) {
+class StopwatchGroup(val name: String, val movingAverage: Option[MovingAverageRange]) {
   def this(name: String) = this(name, None)
 
   movingAverage.foreach { avg => 
