@@ -89,7 +89,6 @@ class WebServer {
         while (_running) {
           try {
             _serverSocket foreach { ss =>
-              Console println ("accept")
               val socket = ss.accept()
               try {
                 socket.setSoTimeout(30000)

@@ -39,7 +39,9 @@ import scala.xml._
 /**
  * Embedded stopwatch statistics web server
  */
-class Server extends WebServer with ResourceHandler {
+class Server(enableControls: Boolean) extends WebServer with ResourceHandler {
+  def this() = this(true)
+
   import HttpUtils._
 
   handlers = List(this)
@@ -286,6 +288,7 @@ class Server extends WebServer with ResourceHandler {
 
     <div class="groupReplace" id={id(g.name)}>
       <h3 class="StopwatchGroup"> {g.name} </h3>
+      { if (enableControls) {
       <span class="groupSwitch">Enabled&nbsp;
         <input type="checkbox" name={g.name}
                checked={if (g.enabled) "checked" else null}/>
@@ -293,6 +296,7 @@ class Server extends WebServer with ResourceHandler {
       <span class="groupReset">
         <a class="resetGroup" href="#" onclick={reset}>Reset Group</a>
       </span>
+      }}
       <table class="stopwatches">
         { headers(g) ++ <tbody> { rows(g) } </tbody> }
       </table>
@@ -365,14 +369,20 @@ class Server extends WebServer with ResourceHandler {
             } </span>
           </a></td>
         } else NodeSeq.Empty } ++
-      <td>
+      <td>{
+        if (enableControls) {
         <div class="stopwatchSwitch">
           <input type="checkbox" name={g.name+"~"+s.name}
                  checked={if (s.enabled) "checked" else null}/>
         </div>
+        }
+      }
       </td> ++
-      <td>
+      <td> {
+        if (enableControls) {
         <a class="resetStopwatch" href="#" onclick={reset}>Reset</a>
+        }
+      }
       </td>
     } </tr>
   }
