@@ -251,8 +251,11 @@ class Server(enableControls: Boolean) extends WebServer with ResourceHandler {
     <thead>
       <tr> {
         <th scope="row" class="lead" rowspan="2">Name</th> ++
-        <th scope="col" colspan="3">Hits</th> ++
-        <th scope="col" colspan="3">Moving average</th> ++
+        <th scope="col" colspan="3">Hits</th> ++ {
+          if (g.movingAverage.isDefined) {
+            <th scope="col" colspan="3">Moving average</th>
+          } else NodeSeq.Empty
+        } ++
         <th scope="col" colspan="5">Time</th> ++
         <th scope="col" colspan="3">Threads</th> ++
         <th scope="col" colspan="2">Access</th> ++ {
