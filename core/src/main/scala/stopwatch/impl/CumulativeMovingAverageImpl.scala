@@ -15,9 +15,13 @@ private[stopwatch] class CumulativeMovingAverageImpl(val range: MovingAverageRan
 
   def hitsPerSec: Double = averageHits / range.period.toSeconds
 
-  def averageHits: Double = (hits: Double) / dataPoints.size
+  def averageHits: Double = 
+    if (dataPoints.size == 0) 0 
+    else (hits: Double) / dataPoints.size
 
-  def averageErrors: Double = (errors: Double) / dataPoints.size
+  def averageErrors: Double = 
+    if (dataPoints.size == 0) 0 
+    else (errors: Double) / dataPoints.size
 
   private def totals(value: StopwatchStatistic => Long): Long = {
     val points = dataPoints
