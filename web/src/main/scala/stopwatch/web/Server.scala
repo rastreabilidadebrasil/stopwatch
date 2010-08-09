@@ -136,7 +136,7 @@ class Server(enableControls: Boolean) extends WebServer with ResourceHandler {
     response.status = 200
     response.contentType = "text/html"
 
-    val sortedGroups  = groups.toList sort(_.name < _.name)
+    val sortedGroups  = groups.toList sortWith(_.name < _.name)
 
     val xhtml = <html>
       <head>
@@ -316,7 +316,7 @@ class Server(enableControls: Boolean) extends WebServer with ResourceHandler {
 
   def rows(group: StopwatchGroup) = {
     var i = 1
-    group.names.toList.sort(_ < _).map { name: String =>
+    group.names.toList.sortWith(_ < _).map { name: String =>
       val snapshot = group.snapshot(name)
       i += 1
       row(i, group, snapshot)
@@ -409,7 +409,7 @@ class Server(enableControls: Boolean) extends WebServer with ResourceHandler {
     response.status = 200
     response.contentType = "text/html"
 
-    groups.filter(_.name == group).firstOption foreach { group =>
+    groups.filter(_.name == group).headOption foreach { group =>
       val s = group.snapshot(stopwatch)
 
       import s._

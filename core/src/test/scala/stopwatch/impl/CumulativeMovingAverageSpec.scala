@@ -1,5 +1,6 @@
 package stopwatch.impl
 
+import stopwatch._
 import org.scalacheck._
 import stopwatch.Stopwatch
 import stopwatch.TimeUnit._

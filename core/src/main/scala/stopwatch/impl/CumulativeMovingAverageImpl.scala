@@ -1,5 +1,7 @@
 package stopwatch.impl
 
+import stopwatch._
+
 private case class Snapshot(time: Long, stats: StopwatchStatistic)
 
 private[stopwatch] class CumulativeMovingAverageImpl(val range: MovingAverageRange) 
@@ -7,7 +9,7 @@ private[stopwatch] class CumulativeMovingAverageImpl(val range: MovingAverageRan
   @volatile private var dataPoints = BoundedQueue[Snapshot](range.maxDataPoints + 1)
 
   def ::=(snapshot: StopwatchStatistic) = 
-    dataPoints += Snapshot(System.currentTimeMillis, snapshot)
+    dataPoints = dataPoints.enqueue(Snapshot(System.currentTimeMillis, snapshot))
 
   def hits: Long = totals(_.hits)
 
@@ -28,7 +30,7 @@ private[stopwatch] class CumulativeMovingAverageImpl(val range: MovingAverageRan
     points.size match {
       case 0 => 0
       case n if n <= range.maxDataPoints => value(points.last.stats)
-      case _ => value(points.last.stats) - value(points.first.stats)
+      case _ => value(points.last.stats) - value(points.head.stats)
     }
   }
 }

@@ -7,13 +7,13 @@ class StopwatchProject(info: ProjectInfo) extends ParentProject(info) with Scala
   lazy val web = project("web", "Stopwatch Web Interface", new WebProject(_), core)
 
   class CoreProject(info: ProjectInfo) extends DefaultProject(info) {
-    val scalatest  = "org.scalatest" % "scalatest" % "1.0.1-SNAPSHOT" % "test"
-    val scalacheck = "org.scala-tools.testing" % "scalacheck" % "1.6" % "test"
+    val scalatest  = "org.scalatest" % "scalatest" % "1.2-for-scala-2.8.0.final-SNAPSHOT" % "test"
+    val scalacheck = "org.scala-tools.testing" % "scalacheck_2.8.0" % "1.7" % "test"
     val junit      = "junit" % "junit" % "4.5" % "test"
   }
 
   class WebProject(info: ProjectInfo) extends DefaultProject(info) {
-    val scalatest  = "org.scalatest" % "scalatest" % "1.0.1-SNAPSHOT"
+    val scalatest  = "org.scalatest" % "scalatest" % "1.2-for-scala-2.8.0.final-SNAPSHOT" % "test"
 
     override val mainClass = Some("stopwatch.web.SampleServer")
   }
