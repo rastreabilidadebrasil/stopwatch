@@ -16,17 +16,22 @@ See <http://buildr.apache.org/installing.html> for instructions on installing Bu
 ### Building ###
 
 
-    # compile, test and package .jars
-    buildr package
+    # compile, and package .jars
+    sbt update
+    sbt compile
+    sbt package
+
+    # test
+    sbt test
 
 ### Launching the sample web UI ###
 
     # launch the sample stopwatch server on port 9999
-    buildr sample
+    TODO: buildr sample
 
 ### Target platform ###
 
-* Scala 2.7.4+ / 2.8+  (source compatible)
+* Scala 2.7.4+ / 2.9+  (source compatible)
 * JVM 1.5+
 
 ### License ###

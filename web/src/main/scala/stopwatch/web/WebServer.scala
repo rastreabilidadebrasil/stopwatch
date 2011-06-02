@@ -192,7 +192,7 @@ class WebServer {
     val (requestMethod, path) = req match {
       case getRegex(path, httpVersion) => ("GET", path)
       case postRegex(path, httpVersion) => ("POST", path)
-      case _ => error("Illegal or unsupported request: "+req)
+      case _ => sys.error("Illegal or unsupported request: "+req)
     }
 
     // separate path from query string
@@ -201,7 +201,7 @@ class WebServer {
       (path split ("""\?""")).toList match {
         case List(path) => (path, "")
         case List(path, query) => (path, query)
-        case _ => error("Illegal request path: "+req)
+        case _ => sys.error("Illegal request path: "+req)
       }
     }      
 
@@ -211,7 +211,7 @@ class WebServer {
 
     // prevent hijacking with relative path segments
     if (path3 exists { _ == ".." }) {
-      error("Request path should not contain '..': "+req)      
+      sys.error("Request path should not contain '..': "+req)      
     }
 
     log.debug("Path: "+path3)
@@ -257,7 +257,7 @@ class WebServer {
     if (requestMethod == "POST") {
       val contentLength = (
         requestHeaders.get("Content-Length").map(_.toInt)
-          getOrElse error("Content-Length required")
+          getOrElse sys.error("Content-Length required")
       )
       val buf = new Array[Byte](contentLength)
       var read = 0
