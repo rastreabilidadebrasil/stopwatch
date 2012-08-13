@@ -1,0 +1,70 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
+      <head>
+        <title>Stopwatch - profiling scala code — Web Interface</title>
+        <link type="text/css" media="screen, projection" rel="stylesheet" href="css/blueprint/screen.css"></link>
+        <link type="text/css" media="screen and (min-device-width: 800px), projection" rel="stylesheet" href="css/blueprint/grid.css"></link>
+        <link type="text/css" media="print" rel="stylesheet" href="css/blueprint/print.css"></link> 
+        <!--[if lt IE 8]>
+          <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"/>
+        <![endif]-->
+        <link type="text/css" media="screen, projection" rel="stylesheet" href="css/pamflet.css"></link>
+        <link type="text/css" media="print" rel="stylesheet" href="css/pamflet-print.css"></link>
+        <link type="text/css" media="screen and (min-device-width: 800px), projection" rel="stylesheet" href="css/pamflet-grid.css"></link>
+        <link type="text/css" media="screen, projection" rel="stylesheet" href="css/custom.css"></link>
+        <script src="js/jquery-1.6.2.min.js"></script>
+        <script src="js/jquery.collapse.js"></script>
+        <script src="js/pamflet.js"></script>
+        <script type="text/javascript" src="js/prettify/prettify.js"></script><script type="text/javascript" src="js/prettify/lang-scala.js"></script><link type="text/css" rel="stylesheet" href="css/prettify.css"></link><script type="text/javascript"><!--
+        window.onload=function() { prettyPrint(); };
+      --></script>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        
+      </head>
+      <body>
+        <a class="page prev nav" href="Time+Distribution.html">
+            <span class="space">&nbsp;</span>
+            <span class="flip">&gt;</span>
+          </a><a class="page next nav" href="Contents+in+Depth.html">
+            <span class="space">&nbsp;</span>
+            <span>&gt;</span>
+          </a>
+        <div class="container">
+          <div class="span-16 prepend-1 append-1">
+            <div class="top nav span-16 title">
+              <span>Stopwatch - profiling scala code</span> — Web Interface
+            </div>
+          </div>
+          <div class="span-16 prepend-1 append-1 contents">
+            <h1 id="Web+Interface">Web Interface</h1><p>The optional <strong>stopwatch-web.jar</strong> library provides a small embedded web server to monitor your application in a development/certification setting.  It does not yet provide any security beyond only opening “localhost” loopback-only port.
+</p><p>You can embed the server by inserting the following code fragment in your application’s startup code:
+</p><pre><code class="prettyprint lang-scala">import stopwatch.web.Server
+
+val server = new stopwatch.web.Server
+
+// register StopwatchGroups you want to monitor
+server.groups ::= Stopwatch
+server.groups ::= myStopwatchGruop
+
+// configure port number
+server.port = 9999
+
+server.start()
+</code></pre><h2 id="Try+it%21">Try it!</h2><p>You can try a sample of the web server by running,
+</p><pre><code class="prettyprint lang-sh">% scala -cp stopwatch-1.x.jar:stopwatch-web-1.x.jar stopwatch.web.SampleServer
+</code></pre><p>If you point your browser to “http://localhost:9999”:http://localhost:9999, you should see:
+</p><p>!images/stopwatches-thumbnail.jpg!:images/stopwatches.png
+</p><p>and by clicking on the distribution sparklines, you will see more details about the distribution range:
+</p><p>!images/distribution-thumbnail.jpg!:images/distribution.png
+</p><div class="bottom nav end"></div><div class="tocwrapper show">
+      <a class="tochead nav" style="display: none" href="#toc">❦</a>
+      <a name="toc"></a>
+      <h4 class="toctitle">Contents</h4>
+      <div class="tocbody">
+      <div><a href="Stopwatch+-+profiling+scala+code.html">Stopwatch - profiling scala code</a></div><ol class="toc"> <li><div><a href="Measuring+your+code.html">Measuring your code</a></div></li><li><div><a href="Groups.html">Groups</a></div></li><li><div><a href="Enabling+and+disabling.html">Enabling and disabling</a></div></li><li><div><a href="Time+Distribution.html">Time Distribution</a></div></li><li><div class="current">Web Interface</div></li><li class="generated"><div><a href="Contents+in+Depth.html">Contents in Depth</a></div></li><li class="generated"><div><a href="Combined+Pages.html">Combined Pages</a></div></li> </ol></div></div>
+          </div>
+        </div>
+        <a class="fork nav" href="http://github.com/sbt-android-mill/stopwatch"><img alt="Fork me on GitHub" src="img/fork.png"></img></a>
+      </body>
+    </html>
