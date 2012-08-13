@@ -19,6 +19,9 @@ site.settings
 
 ghpages.settings
 
+organization := "org.digimead"
+
+version := "1.0-SNAPSHOT"
 
 crossScalaVersions := Seq("2.8.2", "2.9.1", "2.9.2")
 
