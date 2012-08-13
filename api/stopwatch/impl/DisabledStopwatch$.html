@@ -2,21 +2,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>scalashim.SysDummy</title>
+          <title>stopwatch.impl.DisabledStopwatch</title>
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
-      <link type="text/css" media="screen" rel="stylesheet" href="../lib/template.css" />
-      <script type="text/javascript" src="../lib/jquery.js"></script>
-      <script type="text/javascript" src="../lib/jquery-ui.js"></script>
-      <script type="text/javascript" src="../lib/template.js"></script>
-      <script type="text/javascript" src="../lib/tools.tooltip.js"></script>
+      <link type="text/css" media="screen" rel="stylesheet" href="../../lib/template.css" />
+      <script type="text/javascript" src="../../lib/jquery.js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
     
         </head>
         <body onload="sh_highlightDocument('../lib/', '.min.js');" class="value">
       <div id="definition">
-        <img src="../lib/object_big.png" />
-        <p id="owner"><a name="scalashim" class="extype" href="package.html">scalashim</a></p>
-        <h1>SysDummy</h1>
+        <a title="Go to companion" href="DisabledStopwatch.html"><img src="../../lib/object_to_class_big.png" /></a>
+        <p id="owner"><a name="stopwatch" class="extype" href="../package.html">stopwatch</a>.<a name="stopwatch.impl" class="extype" href="package.html">impl</a></p>
+        <h1><a title="Go to companion" href="DisabledStopwatch.html">DisabledStopwatch</a></h1>
       </div>
 
       <h4 class="signature" id="signature">
@@ -25,13 +25,14 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">SysDummy</span><span class="result"> extends AnyRef</span>
+        <span class="name">DisabledStopwatch</span><span class="result"> extends <a name="stopwatch.impl.DisabledStopwatch" class="extype" href="DisabledStopwatch.html">DisabledStopwatch</a></span>
       </span>
       </h4>
       
-      <div class="fullcommenttop" id="comment"><div class="toggleContainer block">
+      <div class="fullcommenttop" id="comment"><div class="comment cmt"><p>Singleton disabled stopwatch
+</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent">AnyRef, <span name="scala.Any" class="extype">Any</span></div>
+          <div class="superTypes hiddenContent"><a name="stopwatch.impl.DisabledStopwatch" class="extype" href="DisabledStopwatch.html">DisabledStopwatch</a>, <a name="stopwatch.Stopwatch" class="extype" href="../Stopwatch.html">Stopwatch</a>, AnyRef, <span name="scala.Any" class="extype">Any</span></div>
         </div></div>
     
 
@@ -45,7 +46,7 @@
               <span class="filtertype">Inherited</span>
               <ol><li class="hideall out"><span>Hide All</span></li>
               <li class="showall in"><span>Show all</span></li></ol>
-              <ol id="linearization"><li name="scalashim.SysDummy" class="in"><span>SysDummy</span></li><li name="scala.AnyRef" class="in"><span>AnyRef</span></li><li name="scala.Any" class="in"><span>Any</span></li></ol>
+              <ol id="linearization"><li name="stopwatch.impl.DisabledStopwatch" class="in"><span>DisabledStopwatch</span></li><li name="stopwatch.impl.DisabledStopwatch" class="in"><span>DisabledStopwatch</span></li><li name="stopwatch.Stopwatch" class="in"><span>Stopwatch</span></li><li name="scala.AnyRef" class="in"><span>AnyRef</span></li><li name="scala.Any" class="in"><span>Any</span></li></ol>
             </div>
         <div id="visbl">
             <span class="filtertype">Visibility</span>
@@ -123,6 +124,18 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="stopwatch.impl.DisabledStopwatch#Statistic" data-isabs="false">
+      <a id="Statistic:StopwatchStatisticImpl"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Statistic</span><span class="result">: <a name="stopwatch.impl.StopwatchStatisticImpl" class="extype" href="StopwatchStatisticImpl.html">StopwatchStatisticImpl</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="stopwatch.impl.DisabledStopwatch" class="extype" href="DisabledStopwatch.html">DisabledStopwatch</a></dd></dl></div>
     </li><li visbl="pub" name="scala.Any#asInstanceOf" data-isabs="false">
       <a id="asInstanceOf[T0]:T0"></a>
       <h4 class="signature">
@@ -146,10 +159,34 @@
         <span class="name">clone</span><span class="params">()</span><span class="result">: AnyRef</span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="java.lang" class="extype" href="../java/lang/package.html">lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="java.lang" class="extype" href="../../java/lang/package.html">lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">()</span>
               
         </dd></dl></div>
+    </li><li visbl="pub" name="stopwatch.impl.DisabledStopwatch#doWith" data-isabs="false">
+      <a id="doWith[T](⇒ T):T"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">doWith</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="f">f: ⇒ T</span>)</span><span class="result">: T</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Measure the elapsed time spent during execution of the provided function.</p><div class="fullcomment"><div class="comment cmt"><p>Measure the elapsed time spent during execution of the provided function.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="stopwatch.impl.DisabledStopwatch" class="extype" href="DisabledStopwatch.html">DisabledStopwatch</a> → <a name="stopwatch.Stopwatch" class="extype" href="../Stopwatch.html">Stopwatch</a></dd></dl></div>
+    </li><li visbl="pub" name="stopwatch.impl.DisabledStopwatch#enabled" data-isabs="false">
+      <a id="enabled:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">enabled</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns true if stopwatch is enabled</p><div class="fullcomment"><div class="comment cmt"><p>Returns true if stopwatch is enabled</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="stopwatch.impl.DisabledStopwatch" class="extype" href="DisabledStopwatch.html">DisabledStopwatch</a> → <a name="stopwatch.Stopwatch" class="extype" href="../Stopwatch.html">Stopwatch</a></dd></dl></div>
     </li><li visbl="pub" name="scala.AnyRef#eq" data-isabs="false">
       <a id="eq(AnyRef):Boolean"></a>
       <h4 class="signature">
@@ -174,6 +211,20 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="stopwatch.impl.DisabledStopwatch#error" data-isabs="false">
+      <a id="error():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">error</span><span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Stop measuring time and report an error
+</p><div class="fullcomment"><div class="comment cmt"><p>Stop measuring time and report an error
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="stopwatch.impl.DisabledStopwatch" class="extype" href="DisabledStopwatch.html">DisabledStopwatch</a> → <a name="stopwatch.Stopwatch" class="extype" href="../Stopwatch.html">Stopwatch</a></dd></dl></div>
     </li><li visbl="prt" name="scala.AnyRef#finalize" data-isabs="false">
       <a id="finalize():Unit"></a>
       <h4 class="signature">
@@ -185,7 +236,7 @@
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="java.lang" class="extype" href="../java/lang/package.html">lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="java.lang" class="extype" href="../../java/lang/package.html">lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">()</span>
               
         </dd></dl></div>
@@ -225,6 +276,18 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="stopwatch.impl.DisabledStopwatch#name" data-isabs="false">
+      <a id="name:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">name</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Return the name of this stopwatch.</p><div class="fullcomment"><div class="comment cmt"><p>Return the name of this stopwatch.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="stopwatch.impl.DisabledStopwatch" class="extype" href="DisabledStopwatch.html">DisabledStopwatch</a> → <a name="stopwatch.Stopwatch" class="extype" href="../Stopwatch.html">Stopwatch</a></dd></dl></div>
     </li><li visbl="pub" name="scala.AnyRef#ne" data-isabs="false">
       <a id="ne(AnyRef):Boolean"></a>
       <h4 class="signature">
@@ -261,6 +324,55 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="stopwatch.impl.DisabledStopwatch#reset" data-isabs="false">
+      <a id="reset():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">reset</span><span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="stopwatch.impl.DisabledStopwatch" class="extype" href="DisabledStopwatch.html">DisabledStopwatch</a></dd></dl></div>
+    </li><li visbl="pub" name="stopwatch.impl.DisabledStopwatch#snapshot" data-isabs="false">
+      <a id="snapshot():StopwatchStatisticImpl"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">snapshot</span><span class="params">()</span><span class="result">: <a name="stopwatch.impl.StopwatchStatisticImpl" class="extype" href="StopwatchStatisticImpl.html">StopwatchStatisticImpl</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="stopwatch.impl.DisabledStopwatch" class="extype" href="DisabledStopwatch.html">DisabledStopwatch</a></dd></dl></div>
+    </li><li visbl="pub" name="stopwatch.impl.DisabledStopwatch#start" data-isabs="false">
+      <a id="start():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">start</span><span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Start the stopwatch.</p><div class="fullcomment"><div class="comment cmt"><p>Start the stopwatch.  The stopwatch measures time until stop() is called.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="stopwatch.impl.DisabledStopwatch" class="extype" href="DisabledStopwatch.html">DisabledStopwatch</a> → <a name="stopwatch.Stopwatch" class="extype" href="../Stopwatch.html">Stopwatch</a></dd></dl></div>
+    </li><li visbl="pub" name="stopwatch.impl.DisabledStopwatch#stop" data-isabs="false">
+      <a id="stop():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stop</span><span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Stop measuring time.</p><div class="fullcomment"><div class="comment cmt"><p>Stop measuring time.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="stopwatch.impl.DisabledStopwatch" class="extype" href="DisabledStopwatch.html">DisabledStopwatch</a> → <a name="stopwatch.Stopwatch" class="extype" href="../Stopwatch.html">Stopwatch</a></dd></dl></div>
     </li><li visbl="pub" name="scala.AnyRef#synchronized" data-isabs="false">
       <a id="synchronized[T0](⇒ T0):T0"></a>
       <h4 class="signature">
@@ -337,7 +449,11 @@
         </div>
 
         <div id="inheritedMembers">
-        <div name="scala.AnyRef" class="parent">
+        <div name="stopwatch.impl.DisabledStopwatch" class="parent">
+              <h3>Inherited from <a name="stopwatch.impl.DisabledStopwatch" class="extype" href="DisabledStopwatch.html">DisabledStopwatch</a></h3>
+            </div><div name="stopwatch.Stopwatch" class="parent">
+              <h3>Inherited from <a name="stopwatch.Stopwatch" class="extype" href="../Stopwatch.html">Stopwatch</a></h3>
+            </div><div name="scala.AnyRef" class="parent">
               <h3>Inherited from AnyRef</h3>
             </div><div name="scala.Any" class="parent">
               <h3>Inherited from <span name="scala.Any" class="extype">Any</span></h3>

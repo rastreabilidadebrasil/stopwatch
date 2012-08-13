@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>stopwatch</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link type="text/css" media="screen" rel="stylesheet" href="../lib/template.css" />
+      <script type="text/javascript" src="../lib/jquery.js"></script>
+      <script type="text/javascript" src="../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../lib/template.js"></script>
+      <script type="text/javascript" src="../lib/tools.tooltip.js"></script>
+    
+        </head>
+        <body onload="sh_highlightDocument('../lib/', '.min.js');" class="value">
+      <div id="definition">
+        <img src="../lib/package_big.png" />
+        
+        <h1>stopwatch</h1>
+      </div>
+
+      <h4 class="signature" id="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stopwatch</span>
+      </span>
+      </h4>
+      
+      <div class="fullcommenttop" id="comment"></div>
+    
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div class="types members" id="types">
+              <h3>Type Members</h3>
+              <ol><li visbl="pub" name="stopwatch.BoundedQueue" data-isabs="false">
+      <a id="BoundedQueue:BoundedQueue[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BoundedQueue.html"><span class="name">BoundedQueue</span></a><span class="tparams">[<span name="A">+A</span>]</span><span class="result"> extends Queue[A]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">BoundedQueue allows only 'max' items.</p>
+    </li><li visbl="pub" name="stopwatch.CumulativeMovingAverage" data-isabs="true">
+      <a id="CumulativeMovingAverage:CumulativeMovingAverage"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CumulativeMovingAverage.html"><span class="name">CumulativeMovingAverage</span></a><span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="stopwatch.MovingAverageRange" data-isabs="false">
+      <a id="MovingAverageRange:MovingAverageRange"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="MovingAverageRange.html"><span class="name">MovingAverageRange</span></a><span class="params">(<span name="maxDataPoints">maxDataPoints: Int</span>, <span name="period">period: TimeUnit</span>)</span><span class="result"> extends Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="stopwatch.Stopwatch" data-isabs="true">
+      <a id="Stopwatch:Stopwatch"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Stopwatch.html"><span class="name">Stopwatch</span></a><span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <p class="comment cmt">The stopwatch interface used to measure elapsed time and other performance metrics.</p>
+    </li><li visbl="pub" name="stopwatch.StopwatchGroup" data-isabs="false">
+      <a id="StopwatchGroup:StopwatchGroup"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="StopwatchGroup.html"><span class="name">StopwatchGroup</span></a><span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Stopwatch group: used to initialize, start, dispose and reset stopwatches.</p>
+    </li><li visbl="pub" name="stopwatch.StopwatchRange" data-isabs="false">
+      <a id="StopwatchRange:StopwatchRange"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="StopwatchRange.html"><span class="name">StopwatchRange</span></a><span class="params">(<span name="lowerBound">lowerBound: TimeUnit</span>, <span name="higherBound">higherBound: TimeUnit</span>, <span name="step">step: TimeUnit</span>)</span><span class="result"> extends Product with Serializable</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Range of stopwatch hit distribution.</p>
+    </li><li visbl="pub" name="stopwatch.StopwatchStatistic" data-isabs="true">
+      <a id="StopwatchStatistic:StopwatchStatistic"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="StopwatchStatistic.html"><span class="name">StopwatchStatistic</span></a><span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Time statistics collected by a stopwatch.</p>
+    </li><li visbl="pub" name="stopwatch.TimeUnit" data-isabs="false">
+      <a id="TimeUnit:TimeUnit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="TimeUnit.html"><span class="name">TimeUnit</span></a><span class="params">(<span name="value">value: Long</span>, <span name="scale">scale: Long</span>)</span><span class="result"> extends Product with Serializable</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Safe(r) abstraction for time units</p>
+    </li><li visbl="pub" name="stopwatch.TimeUnitConverter" data-isabs="false">
+      <a id="TimeUnitConverter:TimeUnitConverter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="TimeUnitConverter.html"><span class="name">TimeUnitConverter</span></a><span class="params">(<span name="value">value: Long</span>)</span><span class="result"> extends Product with Serializable</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Add &quot;nanos&quot;, &quot;micros&quot;, &quot;millis&quot; and &quot;seconds&quot; to Long numbers</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div class="values members" id="values">
+              <h3>Value Members</h3>
+              <ol><li visbl="pub" name="stopwatch.BoundedQueue" data-isabs="false">
+      <a id="BoundedQueue:BoundedQueue"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BoundedQueue$.html"><span class="name">BoundedQueue</span></a><span class="result"> extends Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="stopwatch.Stopwatch" data-isabs="false">
+      <a id="Stopwatch:Stopwatch"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Stopwatch$.html"><span class="name">Stopwatch</span></a><span class="result"> extends StopwatchGroup</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Default Stopwatch group to create stopwatches.</p>
+    </li><li visbl="pub" name="stopwatch.TimeUnit" data-isabs="false">
+      <a id="TimeUnit:TimeUnit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TimeUnit$.html"><span class="name">TimeUnit</span></a><span class="result"> extends Serializable</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Implicit conversion from Long to TimeUnit</p>
+    </li><li visbl="pub" name="stopwatch.impl" data-isabs="false">
+      <a id="impl:impl"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="impl/package.html"><span class="name">impl</span></a>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
