@@ -15,7 +15,9 @@
         <script src="js/jquery-1.6.2.min.js"></script>
         <script src="js/jquery.collapse.js"></script>
         <script src="js/pamflet.js"></script>
-        
+        <script type="text/javascript" src="js/prettify/prettify.js"></script><script type="text/javascript" src="js/prettify/lang-scala.js"></script><link type="text/css" rel="stylesheet" href="css/prettify.css"></link><script type="text/javascript"><!--
+        window.onload=function() { prettyPrint(); };
+      --></script>
         <meta charset="utf-8"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         
@@ -33,26 +35,30 @@
           </div>
           <div class="span-16 prepend-1 append-1 contents">
             <h1 id="Stopwatch+-+profiling+scala+code">Stopwatch - profiling scala code</h1><p>This small Scala library can be used to determine application performance bottlenecks, user/application interactions, and application scalability. Each stopwatch gathers summary statistics such as hits, execution times (total, average, minimum, maximum, standard deviation), distribution, simultaneous requests or concurrent threads.
-</p><h2 id="About+this+book">About this book</h2><p>This library was created from original works by by Alex Boisvert and originally posted @ <a  href="https://github.com/aboisvert/stopwatch">https://github.com/aboisvert/stopwatch</a>.
+</p><p>This library was created from original works by by Alex Boisvert and originally posted @ <a  href="https://github.com/aboisvert/stopwatch">https://github.com/aboisvert/stopwatch</a>.
 </p><p>This version of the library is maintained on GitHub @ <a  href="https://github.com/sbt-android-mill/stopwatch">https://github.com/sbt-android-mill/stopwatch</a>. 
-</p><p>Version: 0.1.
-</p><p>Date:  @ 
+</p><p><a  href="http://sbt-android-mill.github.com/stopwatch/core-api/">Core API</a>
+</p><p><a  href="http://sbt-android-mill.github.com/stopwatch/web-api/">Web API</a>
 </p><p>Please email any suggestions or errata to:
-</p><p><a  href="&#x6d;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#101;&#122;&#x68;&#64;&#101;&#122;&#x68;&#x2e;&#x6d;&#115;&#x6b;&#46;&#x72;&#x75;">Alexey Aksenov</a>
-</p><h3 id="Statistics">Statistics</h3><ul><li>Hits
+</p><p><a  href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#58;&#x65;&#x7a;&#104;&#x40;&#x65;&#x7a;&#104;&#x2e;&#x6d;&#x73;&#x6b;&#x2e;&#x72;&#117;">Alexey Aksenov</a>
+</p><h4 id="Stopwatch+statistics">Stopwatch statistics</h4><ul><li>Hits
 </li><li>Execution times
 </li><li>Total, average, minimum, maximum, std dev, distribution
 </li><li>Simultaneous requests / concurrent threads
 </li><li>Errors and exceptions
 </li></ul><p>(All over a given time interval)
+</p><h3 id="Setup">Setup</h3><pre><code class="prettyprint lang-scala">libraryDependencies ++= Seq(
+  &quot;org.digimead&quot; %% &quot;stopwatch-core&quot; % &quot;0.1&quot;
+  &quot;org.digimead&quot; %% &quot;stopwatch-web&quot; % &quot;0.1&quot;
+)
+
+resolvers += &quot;stopwatch&quot; at &quot;http://sbt-android-mill.github.com/stopwatch/releases&quot;
+</code></pre><p>Download jar files directly from the <a  href="http://sbt-android-mill.github.com/stopwatch/releases/org/digimead/">Maven 2 repository</a>
 </p><h2 id="Target+platform">Target platform</h2><ul><li>Scala 2.8.2, 2.9.1, 2.9.2 (request for more if needed)
 </li><li>JVM 1.5+
 </li><li>No 3rd-party library dependencies.
-</li></ul><h2 id="Version+History">Version History</h2><p>Version 1.0-SNAPSHOT
-</p><ul><li>Snapshot release until an official first release is made.
-</li></ul><h2 id="Download">Download</h2><p>Download jar files directly from the <a  href="http://sbt-android-mill.github.com/stopwatch/repository/org/digimead/">Maven 2 repository</a>
-</p><h2 id="Legal">Legal</h2><p>Copyright 2009-2010 <a  href="&#x6d;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#97;&#x6c;&#x65;&#120;&#x2e;&#x62;&#x6f;&#x69;&#x73;&#x76;&#x65;&#114;&#x74;&#x40;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">Alex Boisvert</a> <br/>
-Copyright 2012 <a  href="&#x6d;&#x61;&#x69;&#108;&#116;&#x6f;&#x3a;&#101;&#122;&#x68;&#64;&#101;&#122;&#104;&#46;&#x6d;&#x73;&#x6b;&#46;&#114;&#x75;">Alexey Aksenov</a>
+</li></ul><h2 id="Legal">Legal</h2><p>Copyright 2009-2010 <a  href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#x61;&#108;&#x65;&#120;&#x2e;&#x62;&#x6f;&#x69;&#115;&#x76;&#x65;&#x72;&#x74;&#x40;&#x67;&#109;&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#109;">Alex Boisvert</a> <br/>
+Copyright 2012 <a  href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#x65;&#122;&#104;&#64;&#101;&#x7a;&#x68;&#46;&#x6d;&#x73;&#107;&#x2e;&#x72;&#117;">Alexey Aksenov</a>
 </p><p>Licensed under the Apache License, Version 2.0 (the “License”).
 </p><p>You may obtain a copy of the License at <a  href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a>
 </p><p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
