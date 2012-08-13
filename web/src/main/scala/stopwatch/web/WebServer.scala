@@ -40,6 +40,8 @@ import java.text.SimpleDateFormat
 
 import stopwatch.StopwatchGroup
 
+import scalashim._
+
 /**
  * Small embedded webserver that implements a subset of HTTP 1.0 protocol 
  * <p>
