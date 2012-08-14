@@ -1,4 +1,14 @@
-target
-*~
-project/boot
-lib_managed
+*.class
+*.log
+_*
+
+# sbt specific
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+
+# Scala-IDE specific
+.scala_dependencies
