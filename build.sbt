@@ -45,7 +45,4 @@ TaskKey[Unit]("publish-github") <<= (streams, com.jsuereth.ghpages.GhPages.ghpag
   s.log.info("publishing project to github")
 }
 
-TaskKey[Unit]("publish-github") <<= TaskKey[Unit]("publish-github").dependsOn(
-  Keys.publish in Compile in core,
-  Keys.publish in Compile in web,
-  PamfletKeys.write)
+TaskKey[Unit]("publish-github") <<= TaskKey[Unit]("publish-github").dependsOn(PamfletKeys.write)
