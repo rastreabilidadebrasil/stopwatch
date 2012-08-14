@@ -5,8 +5,6 @@ This small Scala library can be used to determine application performance bottle
 
 This library was created from original works by by Alex Boisvert and originally posted @ <https://github.com/aboisvert/stopwatch>.
 
-This version of the library is maintained on GitHub @ <https://github.com/sbt-android-mill/stopwatch>. 
-
 [Documentation](http://sbt-android-mill.github.com/stopwatch/)
 
 ## Legal ##
