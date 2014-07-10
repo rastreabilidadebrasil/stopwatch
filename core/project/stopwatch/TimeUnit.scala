@@ -38,14 +38,14 @@ case class TimeUnit(value: Long, scale: Long) {
   def toMillis: Long = nanos / 1000000L
   def toSeconds: Long = nanos / 1000000000L
 
-  def +(other: TimeUnit) = TimeUnit(nanos + other.toNanos, 1)
-  def -(other: TimeUnit) = TimeUnit(nanos - other.toNanos, 1)
-  def *(other: TimeUnit) = TimeUnit(nanos * other.toNanos, 1)
-  def /(other: TimeUnit) = TimeUnit(nanos / other.toNanos, 1)
+  def +(other: TimeUnit) = TimeUnit(nanos+other.toNanos, 1)
+  def -(other: TimeUnit) = TimeUnit(nanos-other.toNanos, 1)
+  def *(other: TimeUnit) = TimeUnit(nanos*other.toNanos, 1)
+  def /(other: TimeUnit) = TimeUnit(nanos/other.toNanos, 1)
 
-  def +(other: Long) = TimeUnit(nanos + other, 1)
-  def -(other: Long) = TimeUnit(nanos - other, 1)
-  def *(other: Long) = TimeUnit(nanos * other, 1)
-  def /(other: Long) = TimeUnit(nanos / other, 1)
+  def +(other: Long) = TimeUnit(nanos+other, 1)
+  def -(other: Long) = TimeUnit(nanos-other, 1)
+  def *(other: Long) = TimeUnit(nanos*other, 1)
+  def /(other: Long) = TimeUnit(nanos/other, 1)
 }
 

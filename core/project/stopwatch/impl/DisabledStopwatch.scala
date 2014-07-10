@@ -29,7 +29,8 @@ object DisabledStopwatch extends DisabledStopwatch
  * Permanently disabled stopwatch, which does not measure anything.
  */
 class DisabledStopwatch
-  extends Stopwatch {
+  extends Stopwatch
+{
   val name = "DISABLED"
   val enabled = false
   def reset() = ()
@@ -38,7 +39,7 @@ class DisabledStopwatch
   def error() = ()
   def snapshot() = Statistic
   override def doWith[T](f: => T): T = f
-
+  
   val Statistic = new StopwatchStatisticImpl(new StopwatchGroup("DISABLED"), "DISABLED", None)
-
+  
 }

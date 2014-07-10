@@ -4,11 +4,11 @@ import stopwatch._
 
 private case class Snapshot(time: Long, stats: StopwatchStatistic)
 
-private[stopwatch] class CumulativeMovingAverageImpl(val range: MovingAverageRange)
-  extends CumulativeMovingAverage {
+private[stopwatch] class CumulativeMovingAverageImpl(val range: MovingAverageRange) 
+                   extends CumulativeMovingAverage {
   @volatile private var dataPoints = BoundedQueue[Snapshot](range.maxDataPoints + 1)
 
-  def ::=(snapshot: StopwatchStatistic) =
+  def ::=(snapshot: StopwatchStatistic) = 
     dataPoints = dataPoints.enqueue(Snapshot(System.currentTimeMillis, snapshot))
 
   def hits: Long = totals(_.hits)
@@ -17,12 +17,12 @@ private[stopwatch] class CumulativeMovingAverageImpl(val range: MovingAverageRan
 
   def hitsPerSec: Double = averageHits / range.period.toSeconds
 
-  def averageHits: Double =
-    if (dataPoints.size == 0) 0
+  def averageHits: Double = 
+    if (dataPoints.size == 0) 0 
     else (hits: Double) / dataPoints.size
 
-  def averageErrors: Double =
-    if (dataPoints.size == 0) 0
+  def averageErrors: Double = 
+    if (dataPoints.size == 0) 0 
     else (errors: Double) / dataPoints.size
 
   private def totals(value: StopwatchStatistic => Long): Long = {

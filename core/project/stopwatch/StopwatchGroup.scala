@@ -31,7 +31,7 @@ import scala.actors.TIMEOUT
 class StopwatchGroup(val name: String, val movingAverage: Option[MovingAverageRange]) {
   def this(name: String) = this(name, None)
 
-  movingAverage.foreach { avg =>
+  movingAverage.foreach { avg => 
     actor {
       loop {
         reactWithin(avg.period.toMillis) {
@@ -42,13 +42,11 @@ class StopwatchGroup(val name: String, val movingAverage: Option[MovingAverageRa
   }
 
   /** True if stopwatch factory is enabled (i.e., issues real stopwatches) */
-  @volatile var enabled = false // default to disabled
+  @volatile var enabled = false  // default to disabled
 
-  /**
-   * Set to true if stopwatches are initialized implicitly when first used.
-   *  Otherwise, non-preinitialized stopwatches are considered disabled.
-   */
-  @volatile var enableOnDemand = true // default to enabled
+  /** Set to true if stopwatches are initialized implicitly when first used.
+   *  Otherwise, non-preinitialized stopwatches are considered disabled. */
+  @volatile var enableOnDemand = true  // default to enabled
 
   /** Time statistics. */
   // using j.u.c.ConcurrentHashMap because it performs better than any of the Scala collections
@@ -163,8 +161,8 @@ class StopwatchGroup(val name: String, val movingAverage: Option[MovingAverageRa
   }
 
   /** Remove a stopwatch listener */
-  def removeListener(f: String => Unit): Unit = synchronized {
-    _listeners = _listeners filter { l => !(l eq f) }
+  def removeListener(f: String => Unit): Unit = synchronized { 
+    _listeners = _listeners filter { l => !(l eq f) } 
   }
 
   /** Notify all listeners that a Stopwatch has changed value */

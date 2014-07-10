@@ -1,13 +1,19 @@
 name := "stopwatch-web"
 
-organization := "org.digimead"
 
-version := "1.0-SNAPSHOT"
+
+version := "1.1-SNAPSHOT"
 
 description := "A project for profiling Scala code"
 
 publishTo  <<= baseDirectory  { (base) => Some(Resolver.file("file",  base / "../publish/releases" )) }
 
-scalaShimSettings
+libraryDependencies ++= Seq(
+  "org.scalatest" %%  "scalatest" % "2.2.0" % "test",
+  "org.scala-lang" % "scala-actors" % "2.10.1",
+  "junit" % "junit" % "4.11" % "test",
+  "org.scalacheck" %% "scalacheck" % "1.11.4" % "test"
+)
 
-sourceGenerators in Compile <+= scalaShim
+
+libraryDependencies +="stopwatch-core" %% "stopwatch-core" % "latest.integration"

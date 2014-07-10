@@ -35,15 +35,13 @@ trait Stopwatch {
   /** Start the stopwatch.  The stopwatch measures time until stop() is called. */
   def start(): Unit
 
-  /**
-   * Stop measuring time.
+  /** Stop measuring time.
    *
    * @exception IllegalStateException if stopwatch wasn't already started.
    */
   def stop(): Unit
 
-  /**
-   * Stop measuring time and report an error
+  /** Stop measuring time and report an error
    *
    * @exception IllegalStateException if stopwatch wasn't already started.
    */
@@ -56,10 +54,9 @@ trait Stopwatch {
       val result = f
       stop()
       result
-    } catch {
-      case e: Throwable =>
-        error()
-        throw e
+    } catch { case e =>
+      error()
+      throw e
     }
   }
 

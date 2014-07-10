@@ -40,8 +40,7 @@ trait StopwatchStatistic {
   /** Number of times the stopwatch operation had an error */
   def errors: Long
 
-  /**
-   * Returns the average amount of time taken to complete one invocation of
+  /** Returns the average amount of time taken to complete one invocation of
    *  this operation since the beginning of this measurement (in nanoseconds).
    */
   def averageTime: Long
@@ -85,8 +84,7 @@ trait StopwatchStatistic {
   /** Returns a medium-length string representation of stopwatch statistics */
   def toMediumString: String
 
-  /**
-   * Returns a long string representation of stopwatch statistics,
+  /** Returns a long string representation of stopwatch statistics,
    *  including time distribution.
    */
   def toLongString: String

@@ -1,1 +1,1 @@
-addSbtPlugin("com.eed3si9n" % "sbt-scalashim" % "0.2.2")
+addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.2.0")

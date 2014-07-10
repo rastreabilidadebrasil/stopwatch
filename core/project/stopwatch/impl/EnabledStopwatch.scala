@@ -50,12 +50,12 @@ final class EnabledStopwatch(val name: String, private var _stats: StopwatchStat
 
   val enabled = true
 
-  override def hashCode = name.hashCode
+  override def hashCode = name.hashCode 
 
   override def equals(other: Any): Boolean = other match {
     case x: Stopwatch => name == x.name
     case _ => false
   }
 
-  override def toString() = "EnabledStopwatch: " + name
+  override def toString() = "EnabledStopwatch: "+name
 }

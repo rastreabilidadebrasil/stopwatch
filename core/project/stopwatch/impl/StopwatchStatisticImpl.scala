@@ -23,10 +23,11 @@ import stopwatch.StopwatchStatistic
 /**
  * Time statistics for a stopwatch.
  */
-final class StopwatchStatisticImpl(val group: StopwatchGroup, val name: String,
-  val movingAverage: Option[CumulativeMovingAverageImpl])
+final class StopwatchStatisticImpl(val group: StopwatchGroup, val name: String, 
+                                   val movingAverage: Option[CumulativeMovingAverageImpl])
   extends StopwatchStatistic
-  with Cloneable {
+  with Cloneable
+{
   private val millis = 1000000 // used for nanos => milliseconds conversion
 
   /** Whether the stopwatch is enabled */
@@ -148,7 +149,7 @@ final class StopwatchStatisticImpl(val group: StopwatchGroup, val name: String,
       _currentThreads -= 1
       _totalTime += elapsed
       _lastAccessTime = Some(currentTime)
-      _sumOfSquares += elapsed * elapsed
+      _sumOfSquares += elapsed*elapsed
 
       if (error) _errors += 1
 
@@ -179,7 +180,7 @@ final class StopwatchStatisticImpl(val group: StopwatchGroup, val name: String,
     _minTime = -1
     _maxTime = -1
     _firstAccessTime = None
-    _lastAccessTime = None
+    _lastAccessTime  = None
     _maxThreads = 0
     _range = null
     _distribution = null
@@ -212,7 +213,7 @@ final class StopwatchStatisticImpl(val group: StopwatchGroup, val name: String,
     if (snapshot._hits != 0) {
       val sumOfX: Double = snapshot._totalTime
       val n = snapshot._hits
-      val nMinus1: Double = (n - 1) max 1
+      val nMinus1: Double = (n-1) max 1
       val numerator: Double = snapshot._sumOfSquares - ((sumOfX * sumOfX) / n)
       snapshot._standardDeviationTime = java.lang.Math.sqrt(numerator.toDouble / nMinus1).toLong
     }
@@ -252,8 +253,8 @@ final class StopwatchStatisticImpl(val group: StopwatchGroup, val name: String,
   /** Returns a short string representation of stopwatch statistics */
   def toShortString = {
     "Stopwatch \"%s\" {hits=%d, errors=%d, min=%dms, avg=%dms, max=%dms, total=%dms, stdDev=%dms}".
-      format(name, _hits, _errors, _minTime / millis, _averageTime / millis, _maxTime / millis,
-        _totalTime / millis, _standardDeviationTime / millis)
+      format(name, _hits, _errors, _minTime/millis, _averageTime/millis, _maxTime/millis,
+             _totalTime/millis, _standardDeviationTime/millis)
   }
 
   /** Returns a medium-length string representation of stopwatch statistics */
@@ -261,34 +262,32 @@ final class StopwatchStatisticImpl(val group: StopwatchGroup, val name: String,
     val dateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS z")
     val delta = for {
       last <- _lastAccessTime
-      first <- _firstAccessTime
-    } yield last - first
+      first <-_firstAccessTime
+    } yield last-first
 
     val throughput = for (d <- delta) yield (_hits * 1000 / (d: Float))
 
     def formatTime(time: Option[Long]) = time.map(dateFormat.format(_)) getOrElse "N/A"
 
     ("Stopwatch \"%s\" {hits=%d, throughput=%.3f/s, errors=%d," +
-      "minTime=%dms, avgTime=%dms, maxTime=%dms, totalTime=%dms, stdDev=%dms, " +
-      "currentThreads=%d, avgThreads=%.2f, maxThreads=%d, " +
-      "first=%s, last=%s}").format(
-        name, _hits, throughput getOrElse -1L, _errors,
-        _minTime / millis, _averageTime / millis, _maxTime / millis, _totalTime / millis, _standardDeviationTime / millis,
-        _currentThreads, _averageThreads, _maxThreads,
-        formatTime(firstAccessTime), formatTime(_lastAccessTime))
+     "minTime=%dms, avgTime=%dms, maxTime=%dms, totalTime=%dms, stdDev=%dms, " +
+     "currentThreads=%d, avgThreads=%.2f, maxThreads=%d, " +
+     "first=%s, last=%s}" ).format(
+      name, _hits, throughput getOrElse -1L, _errors,
+      _minTime/millis, _averageTime/millis, _maxTime/millis, _totalTime/millis, _standardDeviationTime/millis,
+      _currentThreads, _averageThreads, _maxThreads,
+      formatTime(firstAccessTime), formatTime(_lastAccessTime))
   }
 
-  /**
-   * Returns a long string representation of stopwatch statistics,
+  /** Returns a long string representation of stopwatch statistics,
    *  including time distribution.
    */
   def toLongString = {
     toMediumString + (if (_range eq null) "" else {
-      _range.intervalsAsTuple.map({
-        case (lower, upper) =>
-          (lower / millis) + "-" + (upper / millis) + "ms: " + _distribution(_range.interval(lower))
-      }).mkString(" Distribution {under=%d, ", ", ", ", over=%d}").
-        format(_hitsUnderRange, _hitsOverRange)
+      _range.intervalsAsTuple.map( { case (lower, upper) =>
+         (lower/millis)+"-"+(upper/millis)+"ms: "+_distribution(_range.interval(lower)) }
+       ).mkString(" Distribution {under=%d, ", ", ", ", over=%d}").
+         format(_hitsUnderRange, _hitsOverRange)
     })
   }
 }

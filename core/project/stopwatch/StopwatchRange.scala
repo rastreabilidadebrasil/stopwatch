@@ -25,19 +25,18 @@ case class StopwatchRange(lowerBound: TimeUnit, higherBound: TimeUnit, step: Tim
   private val _step = step.toNanos
 
   /** Returns number of range intervals */
-  def intervals: Int = (_high - _low) / _step toInt
+  def intervals: Int = (_high-_low) / _step toInt
 
   /** Returns which interval a value (in nanos) falls into.  Does not perform range checking. */
   def interval(x: Long): Int = {
-    if (x < _low) (x - _low - _step) / _step toInt
-    else (x - _low) / _step toInt
+    if (x < _low) (x-_low-_step) / _step toInt
+    else (x-_low) / _step toInt
   }
 
   /** Returns which interval a value falls into.  Does not perform range checking. */
   def interval(x: TimeUnit): Int = interval(x.toNanos)
 
-  /**
-   * Returns a sequence of tuples (lowerBound, upperBounds) for each interval (in nanos).
+  /** Returns a sequence of tuples (lowerBound, upperBounds) for each interval (in nanos).
    *  e.g.,
    *       (  0,   999)
    *       (1000, 1999)
@@ -50,7 +49,7 @@ case class StopwatchRange(lowerBound: TimeUnit, higherBound: TimeUnit, step: Tim
     val max = intervals
     var l = new Array[(Long, Long)](max)
     while (i < max) {
-      val lower = _low + (i * _step)
+      val lower = _low + (i*_step)
       l(i) = (lower, lower + _step)
       i += 1
     }
@@ -58,7 +57,7 @@ case class StopwatchRange(lowerBound: TimeUnit, higherBound: TimeUnit, step: Tim
   }
 
   /** Spread = higherBound-lowerBound (in nanos) */
-  def spread: Long = _high - _low
+  def spread: Long = _high-_low
 
   def toList: List[Long] = {
     var l = List[Long]()
