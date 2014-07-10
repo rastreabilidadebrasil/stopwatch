@@ -15,5 +15,6 @@ libraryDependencies ++= Seq(
   "org.scalacheck" %% "scalacheck" % "1.11.4" % "test"
 )
 
+resolvers += "stopwatch" at "https://github.com/rastreabilidadebrasil/stopwatch/raw/master/publish/releases"
 
 libraryDependencies +="stopwatch-core" %% "stopwatch-core" % "latest.integration"
