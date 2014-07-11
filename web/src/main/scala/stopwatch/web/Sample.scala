@@ -33,13 +33,6 @@ class Sample {
   def main(args: Array[String]) {
     val server = new Server
 
-    server.log = {
-      val logger = new SimpleLogger()
-      logger.logDebug = true
-      logger.logPrefix = "Stopwatch"
-      logger
-    }
-
     server.productionMode = false // print error stack traces
 
     server.stopwatch.enabled = true

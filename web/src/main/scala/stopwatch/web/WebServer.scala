@@ -26,19 +26,17 @@ import java.io.InputStreamReader
 import java.io.OutputStream
 import java.io.OutputStreamWriter
 import java.io.Writer
-
 import java.util.concurrent.Executor
-
 import java.net.Socket
 import java.net.ServerSocket
 import java.net.URL
 import java.net.URLDecoder
 import java.net.URLEncoder
-
 import java.text.DateFormat
 import java.text.SimpleDateFormat
-
 import stopwatch.StopwatchGroup
+import org.slf4j.LoggerFactory
+import org.slf4j.Logger
 
 /**
  * Small embedded webserver that implements a subset of HTTP 1.0 protocol
@@ -66,7 +64,7 @@ class WebServer {
   protected val getRegex = """GET\s+(\S+)\s*(\sHTTP/1\.[01])?\s*""".r
   protected val postRegex = """POST\s+(\S+)\s*(\sHTTP/1\.[01])?\s*""".r
 
-  @volatile var log: Logger = NoLogger
+  @volatile var log: Logger = LoggerFactory.getLogger("stopwatch.web.WebServer");
 
   @volatile var debugLogging: Boolean = false
 
@@ -369,16 +367,6 @@ trait HttpResponse {
 
   def contentLength = _content map (_.length)
 }
-
-trait Logger {
-  def debug(s: => String): Unit
-  def info(s: String): Unit
-  def warn(s: String): Unit
-  def error(s: String): Unit
-}
-
-
-
 
 object HttpUtils {
   import HttpContext._
