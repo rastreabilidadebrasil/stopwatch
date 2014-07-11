@@ -66,8 +66,6 @@ class WebServer {
 
   @volatile var log: Logger = LoggerFactory.getLogger("stopwatch.web.WebServer");
 
-  @volatile var debugLogging: Boolean = false
-
   @volatile var productionMode: Boolean = true
 
   @volatile var executor: Executor = SameThreadExecutor
@@ -145,7 +143,7 @@ class WebServer {
       }
     } catch {
       case e: Throwable =>
-        log.error(e.getMessage)
+        log.error(e.getMessage,e)
         if (!productionMode) e.printStackTrace()
         val response = new HttpResponse {
           var status = 500
