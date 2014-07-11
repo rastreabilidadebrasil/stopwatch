@@ -377,49 +377,8 @@ trait Logger {
   def error(s: String): Unit
 }
 
-object NoLogger extends Logger {
-  def debug(s: => String) = ()
-  def info(s: String) = ()
-  def warn(s: String) = ()
-  def error(s: String) = ()
-}
 
-/** Simple logger that writes to a given java.io.Writer */
-class SimpleLogger(val writer: Writer) extends Logger {
-  @volatile var logDebug = false
-  @volatile var logInfo = true
-  @volatile var logWarn = true
-  @volatile var logError = true
-  @volatile var logDateTime = true
-  @volatile var logPrefix = ""
-  @volatile var dateFormat: DateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS z")
 
-  def this(out: OutputStream) = this(new OutputStreamWriter(out))
-  def this() = this(System.out)
-
-  override def debug(s: => String) = if (logDebug) log("DEBUG: " + s)
-  override def info(s: String) = if (logInfo) log(" INFO: " + s)
-  override def warn(s: String) = if (logWarn) log(" WARN: " + s)
-  override def error(s: String) = if (logError) log("ERROR: " + s)
-
-  protected def log(s: String) {
-    import writer._
-    if (logDateTime) {
-      val now = System.currentTimeMillis
-      val formatted = dateFormat.clone().asInstanceOf[DateFormat].format(now)
-      write(formatted)
-      write(" ")
-    }
-    if (logPrefix.length > 0) {
-      write(logPrefix)
-      write(" ")
-    }
-    write(s)
-    write("\n")
-    writer.flush()
-  }
-
-}
 
 object HttpUtils {
   import HttpContext._
